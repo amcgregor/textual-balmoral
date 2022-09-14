@@ -31,7 +31,7 @@ Which you utilize will depend on if you have the "Share data between devices usi
 
 ## License
 
-Copyright (c) 2013 [Ryan Grove](mailto:ryan@wonko.com)
+Copyright (c) 2013 [Ryan Grove](mailto:ryan@wonko.com)  
 Copyright (c) 2022 [Alice Bevan-McGregor](mailto:alice@gothcandy.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the ‘Software’), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
