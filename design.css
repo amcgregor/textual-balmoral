@@ -1,0 +1,116 @@
+@import "inlineMedia.css";  /* Support inline media presentation. */
+
+:root {
+	supported-color-schemes: dark;
+}
+
+
+html, body {
+	background: #262626;
+	color: #bcbcbc;
+	font-size: 16px;
+	line-height: 22px;
+	margin: 0;
+	word-wrap: break-word;
+	word-break: break-word;
+	min-height: 100%;
+}
+
+a {
+	color: #5F87AF;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #87AFD7;
+	text-decoration: underline;
+}
+
+#body {
+	z-index: -5;
+	opacity: 0; /* Set by JavaScript */
+	display: flex;
+	flex-direction: row;
+	align-items: end;
+	min-height: 100%;
+	/* TODO: Min-height, with bottom alignment, for fresh views. */
+}
+
+
+/* Upper Channel Topic Bar */
+
+#topicBar {
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	opacity: 0; /* Set by JavaScript */
+	opacity: 1 !important; /* Alice: yup nope */
+	color: #bcbcbc;
+	position: fixed;
+	padding: 1ex 1.5ex;
+	border-bottom: 1px solid #6C6C6C;
+	background: #262626;
+	-webkit-transition: opacity 0.8s linear;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+
+#topicBar::first-line {
+	font-weight: bold;
+}
+
+
+/* Channel Content */
+
+.line { display: flex; flex-flow: row; }
+.sender, .time { flex-shrink: 0; }
+.message, .sender, .time { padding: 4px 8px 3px; }
+
+.sender { font-weight: bold; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; width: 10em; background: #1C1C1C; }
+.message { width: 100%; position: relative; }
+.time { opacity: 0.8; font-size: 14px; white-space: nowrap; text-align: right; cursor: default; }
+
+.line[data-line-type="action"] .sender { background: transparent; }
+
+/* Mouse Hover Interactions */
+
+.line.text:hover, body[data-view-type="server"] .line:hover { outline: 1px solid #6C6C6C; color: white; }
+.line.text:hover .time, body[data-view-type="server"] .line:hover .time { opacity: 1; }
+
+
+/* Channel Content: Event Messages */
+
+.event { opacity: 0.8; }
+.event .message { font-size: 0.8em; text-indent: -1.15em; padding-left: 2em; }
+.event .message:before { content: '\f7fc '; width: 1em; }
+.event .time {  }
+.event .time:before { opacity: 0.5; }
+.event .sender:empty { display: none; }
+
+.event[data-command="quit"] .message:before { content: '\f818 '; }
+.event[data-command="join"] .message:before { content: '\f817 '; }
+.event[data-command="nick"] .message:before { content: '\f2c3 '; }
+
+/* Mouse Hover Interactions */
+.event:hover { opacity: 1; }
+.event:hover .message,
+.event:hover .time { color: white; cursor: default; }
+.event:hover .message:before { color: #87AFD7; }
+.event[data-command="quit"]:hover .message:before { color: #AF5F5F; }
+.event[data-command="join"]:hover .message:before { color: #87AF87; }
+
+
+/* Channel Content: Tracked Users */
+
+.sender { cursor: pointer; }
+.line.selectedUser[data-highlight="false"] { background: #444444; color: white; }
+.line.selectedUser[data-highlight="false"] .sender { background: transparent; }
+
+
+/*
+
+body[data-view-type="sender"] .sender {
+	display: none;
+}
+
+*/
