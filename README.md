@@ -2,7 +2,7 @@
 
 An attractive, medium-contrast dark theme for the [Textual IRC client](https://github.com/Textualize/textual) which utilizes the icon font extras of [Nerd Fonts](https://www.nerdfonts.com) patched fixed-width fonts. A majority of the colours themselves were selected from the [Apprentice colour scheme](https://github.com/romainl/apprentice-colorschemes#readme) selection.
 
-It is **required** that you use a Nerd Fonts patched font when using this theme.
+It is **required** that you use a Nerd Fonts patched font when using this theme. Derived from the built-in Sulaco theme and largely based on "theme customizations" thereof.
 
 
 ## Overview
