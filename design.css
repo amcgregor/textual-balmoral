@@ -62,6 +62,8 @@ a:hover {
 
 /* Channel Content */
 
+#messageBuffer { width: 100%; }
+
 .line { display: flex; flex-flow: row; }
 .sender, .time { flex-shrink: 0; }
 .message, .sender, .time { padding: 4px 8px 3px; }
@@ -88,15 +90,17 @@ a:hover {
 .event .sender:empty { display: none; }
 
 .event[data-command="quit"] .message:before { content: '\f818 '; }
+.event[data-command="part"] .message:before { content: '\f2c0 '; }
 .event[data-command="join"] .message:before { content: '\f817 '; }
-.event[data-command="nick"] .message:before { content: '\f2c3 '; }
+.event[data-command="nick"] .message:before { content: '\f2bd '; }
 
 /* Mouse Hover Interactions */
 .event:hover { opacity: 1; }
 .event:hover .message,
 .event:hover .time { color: white; cursor: default; }
 .event:hover .message:before { color: #87AFD7; }
-.event[data-command="quit"]:hover .message:before { color: #AF5F5F; }
+.event[data-command="quit"]:hover .message:before,
+.event[data-command="part"]:hover .message:before { color: #AF5F5F; }
 .event[data-command="join"]:hover .message:before { color: #87AF87; }
 
 
